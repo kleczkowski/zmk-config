@@ -21,9 +21,18 @@
                 <&macro_tap>,
                 <&kp TAB>,
                 <&macro_release>,
-                <&kp>;
+                <&kp LWIN>;
 
             label = "WIN_TAB";
+        };
+    };
+
+    combos {
+        compatible = "zmk,combos";
+
+        win_tab_combo {
+            bindings = <&win_tab>;
+            key-positions = <56 60>;
         };
     };
 
