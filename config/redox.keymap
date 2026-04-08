@@ -39,6 +39,11 @@
             bindings = <&kp ESC>;
             key-positions = <35 36>;
         };
+
+        dbl_shift_caps_word_combo {
+            bindings = <&caps_word>;
+            key-positions = <40 55>;
+        };
     };
 
     keymap {
@@ -53,21 +58,21 @@
             // | CRTL  | ALT | GUI | LOWER |    GUI    | LOWER | SPACE   | --- | DEL  | SPACE |     RAISE     | LEFT  | DOWN | UP |   RIGHT   |
 
             bindings = <
-&kp GRAVE     &kp N1      &kp N2          &kp N3          &kp N4                      &kp N5                                                      &kp N6  &kp N7                        &kp N8     &kp N9    &kp N0    &kp MINUS
-&kp TAB       &kp Q       &kp W           &kp E           &kp R                       &kp T   &lt 2 LPAR                              &lt 2 RPAR  &kp Y   &kp U                         &kp I      &kp O     &kp P     &kp EQUAL
-&kp ESCAPE    &kp A       &kp S           &kp D           &kp F                       &kp G   &kp LBKT                                &kp RBKT    &kp H   &kp J                         &kp K      &kp L     &kp SEMI  &kp SQT
-&kp LSHFT     &kp Z       &kp X           &kp C           &kp V                       &kp B   &kp PG_UP      &kp PG_DN     &kp HOME   &kp END     &kp N   &kp M                         &kp COMMA  &kp DOT   &kp FSLH  &kp RSHFT
-&kp LEFT_WIN  &lt 2 PLUS  &mt LALT MINUS  &lt 1 ASTERISK  &mt LEFT_CONTROL BACKSLASH          &kp BACKSPACE  &kp DELETE    &kp ENTER  &kp SPACE           &mt RIGHT_ALT K_CONTEXT_MENU  &kp LEFT   &kp DOWN  &kp UP    &kp RIGHT
+&kp GRAVE     &kp N1      &kp N2          &kp N3          &kp N4                      &kp N5                                                      &kp N6  &kp N7         &kp N8     &kp N9    &kp N0    &kp MINUS
+&kp TAB       &kp Q       &kp W           &kp E           &kp R                       &kp T   &lt 2 LPAR                              &lt 2 RPAR  &kp Y   &kp U          &kp I      &kp O     &kp P     &kp EQUAL
+&kp ESCAPE    &kp A       &kp S           &kp D           &kp F                       &kp G   &kp LBKT                                &kp RBKT    &kp H   &kp J          &kp K      &kp L     &kp SEMI  &kp SQT
+&kp LSHFT     &kp Z       &kp X           &kp C           &kp V                       &kp B   &kp PG_UP      &kp PG_DN     &kp HOME   &kp END     &kp N   &kp M          &kp COMMA  &kp DOT   &kp FSLH  &kp RSHFT
+&kp LEFT_WIN  &lt 2 PLUS  &mt LALT MINUS  &lt 1 ASTERISK  &mt LEFT_CONTROL BACKSLASH          &kp BACKSPACE  &kp DELETE    &kp ENTER  &kp SPACE           &kp RIGHT_ALT  &kp LEFT   &kp DOWN  &kp UP    &kp RIGHT
             >;
         };
 
         mod_layer {
             bindings = <
-&kp F1     &kp F2       &kp F3      &kp F4          &kp F5           &kp F6                                               &kp F7           &kp F8     &kp F9     &kp F10     &kp F11       &kp F12
-&kp LALT   &kp EXCL     &kp AT      &kp LEFT_BRACE  &kp RIGHT_BRACE  &kp PIPE   &kp LSHIFT                    &kp RSHIFT  &kp KP_SLASH     &kp KP_N7  &kp KP_N8  &kp KP_N9   &kp KP_MINUS  &kp RALT
-&kp LCTRL  &kp POUND    &kp DOLLAR  &kp LBKT        &kp RBKT         &kp GRAVE  &trans                        &trans      &kp KP_ASTERISK  &kp KP_N4  &kp KP_N5  &kp KP_N6   &kp KP_PLUS   &kp LCTRL
-&trans     &kp PERCENT  &kp CARET   &kp LPAR        &kp RPAR         &kp TILDE  &trans      &trans    &trans  &trans      &kp KP_NUMLOCK   &kp KP_N1  &kp KP_N2  &kp KP_N3   &kp KP_ENTER  &trans
-&trans     &trans       &trans      &trans          &trans                      &trans      &trans    &trans  &trans                       &trans     &kp KP_N0  &kp KP_DOT  &kp KP_ENTER  &trans
+&kp F1          &kp F2       &kp F3      &kp F4          &kp F5           &kp F6                                       &kp F7           &kp F8     &kp F9     &kp F10     &kp F11         &kp F12
+&sk LALT        &kp EXCL     &kp AT      &kp LEFT_BRACE  &kp RIGHT_BRACE  &kp PIPE   &trans                    &trans  &kp KP_SLASH     &kp KP_N7  &kp KP_N8  &kp KP_N9   &kp KP_MINUS    &sk RALT
+&sk LCTRL       &kp POUND    &kp DOLLAR  &kp LBKT        &kp RBKT         &kp GRAVE  &trans                    &trans  &kp KP_ASTERISK  &kp KP_N4  &kp KP_N5  &kp KP_N6   &kp KP_PLUS     &sk LCTRL
+&sk LSHFT       &kp PERCENT  &kp CARET   &kp LPAR        &kp RPAR         &kp TILDE  &trans  &trans    &trans  &trans  &kp KP_NUMLOCK   &kp KP_N1  &kp KP_N2  &kp KP_N3   &kp KP_ENTER    &sk RSHFT
+&kp SCROLLLOCK  &trans       &trans      &trans          &trans                      &trans  &trans    &trans  &trans                   &trans     &kp KP_N0  &kp KP_DOT  &kp KP_NUMLOCK  &kp CAPS
             >;
         };
 
@@ -80,11 +85,11 @@
             // | CRTL  | ALT   |  GUI     |   LOWER   |      GUI        | LOWER | SPACE   | --- | DEL  | SPACE |   RAISE   | LEFT | DOWN | UP  |   RIGHT    |
 
             bindings = <
-&trans  &trans          &mkp MB3        &trans           &trans            &trans                                                                    &bt BT_CLR     &bt BT_CLR_ALL  &bt BT_PRV      &bt BT_NXT      &trans         &out OUT_TOG
-&trans  &mkp MB1        &mmv MOVE_UP    &mkp MB2         &none             &none       &bootloader                                      &bootloader  &bt BT_SEL 0   &bt BT_SEL 1    &bt BT_SEL 2    &bt BT_SEL 3    &bt BT_SEL 4   &trans
-&trans  &mmv MOVE_LEFT  &mmv MOVE_DOWN  &mmv MOVE_RIGHT  &trans            &none       &sys_reset                                       &sys_reset   &bt BT_DISC 0  &bt BT_DISC 1   &bt BT_DISC 2   &bt BT_DISC 3   &bt BT_DISC 4  &trans
-&trans  &kp SYSREQ      &kp PSCRN       &kp CLCK         &none             &kp C_MUTE  &kp C_VOLUME_DOWN  &kp C_VOLUME_UP    &mkp MB4   &mkp MB5     &trans         &trans          &trans          &trans          &trans         &trans
-&trans  &trans          &trans          &trans           &kp C_PLAY_PAUSE              &kp C_PREVIOUS     &kp C_NEXT         &mkp LCLK  &mkp RCLK                   &trans          &msc SCRL_LEFT  &msc SCRL_DOWN  &msc SCRL_UP   &msc SCRL_RIGHT
+&trans  &trans          &mkp MB3        &trans           &trans            &trans                                                                    &bt BT_CLR      &bt BT_CLR_ALL  &bt BT_PRV      &bt BT_NXT       &trans        &out OUT_TOG
+&trans  &mkp MB1        &mmv MOVE_UP    &mkp MB2         &none             &none       &bootloader                                      &bootloader  &bt BT_SEL 0    &bt BT_SEL 1    &bt BT_SEL 2    &bt BT_SEL 3     &bt BT_SEL 4  &trans
+&trans  &mmv MOVE_LEFT  &mmv MOVE_DOWN  &mmv MOVE_RIGHT  &trans            &none       &sys_reset                                       &sys_reset   &msc SCRL_LEFT  &msc SCRL_DOWN  &msc SCRL_UP    &msc SCRL_RIGHT  &trans        &trans
+&trans  &kp SYSREQ      &kp PSCRN       &trans           &trans            &kp C_MUTE  &kp C_VOLUME_DOWN  &kp C_VOLUME_UP    &mkp MB4   &mkp MB5     &trans          &trans          &trans          &trans           &trans        &trans
+&trans  &trans          &trans          &trans           &kp C_PLAY_PAUSE              &kp C_PREVIOUS     &kp C_NEXT         &mkp LCLK  &mkp RCLK                    &trans          &mmv MOVE_LEFT  &mmv MOVE_DOWN   &mmv MOVE_UP  &mmv MOVE_RIGHT
             >;
         };
     };
