@@ -13,6 +13,7 @@
 #define MACOS 1
 #define MOD 2
 #define ADJUST 3
+#define MACOS_MOD 4
 
 / {
     macros {
@@ -47,6 +48,15 @@
         dbl_shift_caps_word_combo {
             bindings = <&caps_word>;
             key-positions = <40 55>;
+        };
+    };
+
+    conditional_layers {
+        compatible = "zmk,conditional-layers";
+
+        macos_mod {
+            if-layers = <MACOS MOD>;
+            then-layer = <MACOS_MOD>;
         };
     };
 
@@ -88,6 +98,17 @@
 &sk LCTRL       &kp POUND    &kp DOLLAR  &kp LBKT        &kp RBKT         &kp GRAVE  &trans                    &trans  &kp KP_ASTERISK  &kp KP_N4  &kp KP_N5  &kp KP_N6   &kp KP_PLUS     &sk LCTRL
 &sk LSHFT       &kp PERCENT  &kp CARET   &kp LPAR        &kp RPAR         &kp TILDE  &trans  &trans    &trans  &trans  &kp KP_NUMLOCK   &kp KP_N1  &kp KP_N2  &kp KP_N3   &kp KP_ENTER    &sk RSHFT
 &kp SCROLLLOCK  &trans       &trans      &trans          &trans                      &trans  &trans    &trans  &trans                   &trans     &kp KP_N0  &kp KP_DOT  &kp KP_NUMLOCK  &kp CAPS
+            >;
+        };
+
+        macos_mod_layer {
+            // Sticky Command in both bottom corners while macOS and MOD are active.
+            bindings = <
+&trans    &trans  &trans  &trans  &trans  &trans                          &trans  &trans  &trans  &trans  &trans  &trans
+&trans    &trans  &trans  &trans  &trans  &trans  &trans          &trans  &trans  &trans  &trans  &trans  &trans  &trans
+&trans    &trans  &trans  &trans  &trans  &trans  &trans          &trans  &trans  &trans  &trans  &trans  &trans  &trans
+&trans    &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
+&sk LGUI  &trans  &trans  &trans  &trans          &trans  &trans  &trans  &trans          &trans  &trans  &trans  &trans  &sk RGUI
             >;
         };
 
