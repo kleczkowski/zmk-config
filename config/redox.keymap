@@ -76,7 +76,7 @@
 &kp TAB       &kp Q       &kp W        &kp E     &kp R                       &kp T   &lt ADJUST LPAR                         &lt ADJUST RPAR  &kp Y   &kp U          &kp I      &kp O     &kp P     &kp EQUAL
 &kp ESCAPE    &kp A       &kp S        &kp D     &kp F                       &kp G   &kp LBKT                                &kp RBKT    &kp H   &kp J          &kp K      &kp L     &kp SEMI  &kp SQT
 &kp LSHFT     &kp Z       &kp X        &kp C     &kp V                       &kp B   &kp PG_UP      &kp PG_DN     &kp HOME   &kp END     &kp N   &kp M          &kp COMMA  &kp DOT   &kp FSLH  &kp RSHFT
-&kp LEFT_WIN  &lt ADJUST PLUS  &lt MOD MINUS  &kp LALT  &mt LEFT_CONTROL BACKSLASH    &kp BACKSPACE  &kp DELETE    &kp ENTER  &kp SPACE           &kp RIGHT_ALT  &kp LEFT   &kp DOWN  &kp UP    &kp RIGHT
+&kp LEFT_WIN  &lt MACOS_MOD PLUS  &lt MOD MINUS  &kp LALT  &mt LEFT_CONTROL BACKSLASH    &kp BACKSPACE  &kp DELETE    &kp ENTER  &kp SPACE           &kp RIGHT_ALT  &kp LEFT   &kp DOWN  &kp UP    &kp RIGHT
             >;
         };
 
@@ -102,9 +102,9 @@
         };
 
         macos_mod_layer {
-            // Sticky Command in both bottom corners while macOS and MOD are active.
+            // Explicit macOS toggle plus sticky Command in both bottom corners.
             bindings = <
-&trans    &trans  &trans  &trans  &trans  &trans                          &trans  &trans  &trans  &trans  &trans  &trans
+&tog MACOS  &trans  &trans  &trans  &trans  &trans                          &trans  &trans  &trans  &trans  &trans  &trans
 &trans    &trans  &trans  &trans  &trans  &trans  &trans          &trans  &trans  &trans  &trans  &trans  &trans  &trans
 &trans    &trans  &trans  &trans  &trans  &trans  &trans          &trans  &trans  &trans  &trans  &trans  &trans  &trans
 &trans    &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
@@ -114,14 +114,14 @@
 
         adjust_layer {
             // -----------------------------------------------------------------------------------------
-            // | OS TGL|  F2   |    F3    |    F4     |     F5     | F6 |                   ---                | F7  | F8  |  F9  |  F10 | F11 | F12        |
+            // |   `   |  F2   |    F3    |    F4     |     F5     | F6 |                   ---                | F7  | F8  |  F9  |  F10 | F11 | F12        |
             // | TAB   |       |          |           |            |    | BOOTL |           ---        |  )    | BT1 | BT2 |  BT3 |  BT4 | BT5 | OUTPUT TGL |
             // | CTRL  | MUTE  |  Vol Dn  |  Vol Up   | Play/Pause |    | RESET |           ---        |  ]    | F1  | F2  |  F3  |  F4  | F5  | F6         |
             // | SHIFT | PSCRN |  PSCRN   |   CAPS    |            |    | PG_UP | PG_DOWN | --- | HOME | END   | F7  | F8  |  F9  |  F10 | F11 | F12        |
             // | CRTL  | ALT   |  GUI     |   LOWER   |      GUI        | LOWER | SPACE   | --- | DEL  | SPACE |   RAISE   | LEFT | DOWN | UP  |   RIGHT    |
 
             bindings = <
-&tog MACOS  &trans      &mkp MB3        &trans           &trans            &trans                                                                    &bt BT_CLR      &bt BT_CLR_ALL  &bt BT_PRV      &bt BT_NXT       &trans        &out OUT_TOG
+&trans  &trans      &mkp MB3        &trans           &trans            &trans                                                                    &bt BT_CLR      &bt BT_CLR_ALL  &bt BT_PRV      &bt BT_NXT       &trans        &out OUT_TOG
 &trans  &mkp MB1        &mmv MOVE_UP    &mkp MB2         &none             &none       &bootloader                                      &bootloader  &bt BT_SEL 0    &bt BT_SEL 1    &bt BT_SEL 2    &bt BT_SEL 3     &bt BT_SEL 4  &trans
 &trans  &mmv MOVE_LEFT  &mmv MOVE_DOWN  &mmv MOVE_RIGHT  &trans            &none       &sys_reset                                       &sys_reset   &msc SCRL_LEFT  &msc SCRL_DOWN  &msc SCRL_UP    &msc SCRL_RIGHT  &trans        &trans
 &trans  &kp SYSREQ      &kp PSCRN       &trans           &trans            &kp C_MUTE  &kp C_VOLUME_DOWN  &kp C_VOLUME_UP    &mkp MB4   &mkp MB5     &trans          &trans          &trans          &trans           &trans        &trans
